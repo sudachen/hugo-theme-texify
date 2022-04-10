@@ -28,6 +28,10 @@
   <meta name="keywords" content="{{ range $key, $value := .Site.Params.keywords }} {{ $value }} {{ end }}">
   {{ end }}
 
+  {{ if .Site.Params.GoogleAnalyticsID }}
+  {{ partial "analytics-gtag.html" . }}
+  {{ end }}
+  
   <!-- math -->
   {{ if cond (ne .Params.math nil) .Params.math .Site.Params.math.enable }}
   {{ partial "math.html" . }}
